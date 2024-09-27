@@ -1,0 +1,222 @@
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView  } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import CheckBox from '@react-native-community/checkbox'; // For the checkbox
+import InputField from '../../components/textFields';
+import CustomButton from '../../components/customButtons';
+import SocialButton from '../../components/socialButtonComponent';
+
+// SignIn Screen Component
+const SignUpScreen = ({ navigation }) => {
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  return (
+
+    <ScrollView contentContainerStyle={styles.container0} >
+    <View style={styles.container}>
+      <Text style={styles.title}>Create Your Account</Text>
+
+      {/* User name Input*/}
+      <Text style={styles.label}>Full Name <Text style={styles.required}>*</Text></Text>
+      <InputField
+        iconName="person-outline"
+        placeholder="Enter Your Full Name"
+
+        value={userName}
+        setValue={setUserName}
+      />
+
+
+
+      {/* Email Input */}
+      <Text style={styles.label}>E-mail <Text style={styles.required}>*</Text></Text>
+      <InputField
+        iconName="mail-outline"
+        placeholder="Your Email"
+
+        value={email}
+        setValue={setEmail}
+      />
+
+      {/* Password Input */}
+      <Text style={styles.label}>Password <Text style={styles.required}>*</Text></Text>
+      <InputField
+        iconName="lock-closed-outline"
+        placeholder="********"
+        isPassword={true}
+        value={password}
+        setValue={setPassword}
+      />
+
+      {/* Remember Me and Forgot Password */}
+
+        <View style={styles.rememberMeContainer}>
+          <CheckBox
+            value={rememberMe}
+            onValueChange={setRememberMe}
+            tintColors={{ true: '#007AFF', false: '#A0A0A0' }}
+          />
+          <Text style={styles.rememberMeText}>I agree to</Text>
+          <TouchableOpacity>
+          <Text style={styles.forgotPasswordText}>Terms & privacy</Text>
+        </TouchableOpacity>
+        </View>
+
+
+
+      {/* Sign In Button  */}
+
+      <CustomButton
+        title="Sign Up"
+        onPress={() => navigation.navigate('PaymentPlansScreen')}
+        />
+
+      {/* OR Divider */}
+      <View style={styles.dividerContainer}>
+        <View style={styles.divider} />
+        <Text style={styles.dividerText}>or</Text>
+        <View style={styles.divider} />
+      </View>
+
+      <SocialButton
+        iconSource="https://img.icons8.com/color/48/000000/google-logo.png"
+        buttonText="Continue with Google"
+        onPress={() => console.log('google login pressed') }
+      />
+
+      <SocialButton
+        iconSource="https://img.icons8.com/ios-filled/50/000000/mac-os.png"
+        buttonText="Continue with Apple"
+        onPress={() => console.log('Apple login pressed')}
+      />
+
+      {/* Sign Up */}
+      <View style={styles.signUpContainer}>
+        <Text style={styles.signUpText}>Already have an account? </Text>
+        <TouchableOpacity  onPress={() => navigation.navigate('SignInScreen')}>
+          <Text style={styles.signUpLink}>Sign In</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+    </ScrollView >
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+    container0: {
+        flexGrow: 1, // Ensures that the container takes up the full screen space
+      },
+  container: {
+    flex: 1,
+    paddingHorizontal: 30,
+    justifyContent: 'center',
+    backgroundColor: '#F5F5F5',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 30,
+    fontFamily: 'Roboto-Regular',
+    color: '#000',
+  },
+
+  label: {
+    fontSize: 16,
+    fontFamily: 'Roboto-Regular',
+    marginBottom: 5,
+    fontWeight: '600',
+    color: '#000',
+  },
+  required: {
+    color: 'red',
+  },
+  optionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'start',
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  rememberMeContainer: {
+
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 10,
+
+  },
+  rememberMeText: {
+    fontSize: 14,
+    color: '#000',
+    fontFamily: 'Roboto-Regular',
+  },
+  forgotPasswordText: {
+    fontSize: 14,
+    color: '#007AFF',
+  },
+  signInButton: {
+    backgroundColor: '#005294',
+    paddingVertical: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  signInButtonText: {
+    fontSize: 16,
+    color: '#FFF',
+    fontWeight: 'bold',
+  },
+  dividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  divider: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E0E0E0',
+  },
+  dividerText: {
+    fontSize: 14,
+    color: '#A0A0A0',
+    marginHorizontal: 10,
+  },
+  socialButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    //backgroundColor: '#FFF',
+    paddingVertical: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
+    marginBottom: 15,
+    backgroundColor: '#F5F5F5',
+  },
+  socialIcon: {
+    marginRight: 10,
+  },
+  socialButtonText: {
+    fontSize: 16,
+    color: '#000',
+    fontFamily: 'Roboto-Regular',
+  },
+  signUpContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  signUpText: {
+    fontSize: 14,
+    color: '#000',
+  },
+  signUpLink: {
+    fontSize: 14,
+    color: '#007AFF',
+  },
+});
+
+export default SignUpScreen;
