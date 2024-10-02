@@ -9,7 +9,7 @@ export default {
     white: '#fff',
     background: '#FAFBFE',
     percentangeBackground: '#E1F4EF',
-    lightGrey: '#888',
+    lightGrey: '#EAEDF2',
     borderColor: '#EAEDF2',
 
 }

@@ -6,6 +6,7 @@ import Tabs from '../../components/tabs';
 import PayoutTickerInput from '../../components/payoutTickerInput';
 import CustomButton from '../../components/customButtons';
 
+
 const CreateDividendPortfolioScreen = ({navigation}) => {
   const [activeTab, setActiveTab] = useState('Dividend');
   const [payout, setPayout] = useState('Monthly');
@@ -18,6 +19,8 @@ const CreateDividendPortfolioScreen = ({navigation}) => {
     { symbol: 'PSP', price: 61.87, change: 0.29, lastDiv: 3.518, exDiv: 'Jun 24', payoutFreq: 'Quarterly' },
     { symbol: 'AVGO', price: 1703.3, change: -1.50, lastDiv: 5.250, exDiv: 'May 9', payoutFreq: 'Quarterly' },
   ];
+
+  const tabs = ['General', 'Holdings', 'Dividend', 'View All'];
 
   return (
     <View style={styles.container}>
@@ -33,7 +36,7 @@ const CreateDividendPortfolioScreen = ({navigation}) => {
       />
 
       {/* Tabs */}
-      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs}/>
 
       {/* Table */}
       <View style={styles.tableContainer}>
@@ -43,7 +46,7 @@ const CreateDividendPortfolioScreen = ({navigation}) => {
       {/* Create Button */}
       <CustomButton
         title="Create"
-        onPress={() => navigation.navigate('MainDashboardScreen')}
+        onPress={() => navigation.navigate('MainNavigator')}
       />
     </View>
   );

@@ -104,10 +104,11 @@ paddingVertical: 20,
   },
   label: {
     fontSize: 12,
+   
 
     marginBottom: 4,
     textAlign: 'center',
-    color: colors.lightGrey
+    color: 'black'
 
   },
   value: {

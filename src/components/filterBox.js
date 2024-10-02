@@ -2,12 +2,13 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Importing Material Icons
 import colors from '../utils/config/colors';
-
+import FilterIcon from '../assets/svg/filter.svg';
 const FilterBox = () => {
   return (
     <View style={styles.container}>
       {/* Wrapping icon inside a View */}
-      <Icon name="filter-list" size={24} color="gray" />
+      <FilterIcon />
+      {/* <Icon name="filter-list" size={24} color="gray" /> */}
     </View>
   );
 };

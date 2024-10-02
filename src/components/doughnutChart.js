@@ -70,6 +70,7 @@ const HalfDoughnutChartComponent = ({ income, investment, earnings }) => {
           </View>
           <Text style={styles.legendValue}>${earnings.toLocaleString()}</Text>
         </View>
+      
       </View>
     </View>
   );

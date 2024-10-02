@@ -2,8 +2,8 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const Tabs = ({ activeTab, setActiveTab }) => {
-  const tabs = ['General', 'Holdings', 'Dividend', 'View All'];
+const Tabs = ({ activeTab, setActiveTab, tabs }) => {
+ 
 
   return (
     <View style={styles.tabs}>

@@ -1,6 +1,7 @@
 
 
 
+
 import React from 'react';
 import {
   Text,
@@ -15,12 +16,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Logo from '../assets/svg/Logo.svg';
 import colors from '../utils/config/colors';
 
-const Header = (navigation) => {
+const Header = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.headerContent}>
-        {/* Hamburger Icon */}
-        <TouchableOpacity style={styles.hamburger} onPress={() => navigation.openDrawer()}>
+        {/* Hamburger Icon () => navigation.openDrawer() */}
+        <TouchableOpacity style={styles.hamburger} onPress={null}>
           <Icon name="menu" size={28} color="black" />
         </TouchableOpacity>
 

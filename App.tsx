@@ -1,130 +1,159 @@
-// App.js
-import React from 'react';
-import AppNavigator from './src/utils/navigation/AppNavigator';
 
+// import React, { useState, useEffect } from 'react';
+// import { View, StyleSheet, TouchableOpacity, Animated, Dimensions, Text } from 'react-native';
+// import CustomDrawer from './src/test/CustomDrawer';
+// import Home from './src/test/HomeScreen';
+// import Profile from './src/test/ProfileScreen';
+// import Settings from './src/test/SettingsScreen';
+
+// const { width } = Dimensions.get('window');
+
+// const App = () => {
+//   const [drawerOpen, setDrawerOpen] = useState(false);
+//   const [currentScreen, setCurrentScreen] = useState('Home');
+//   const animation = new Animated.Value(0);
+
+//   useEffect(() => {
+//     Animated.timing(animation, {
+//       toValue: drawerOpen ? 1 : 0,
+//       duration: 300,
+//       useNativeDriver: true,
+//     }).start();
+//   }, [drawerOpen]);
+
+//   const drawerTranslateX = animation.interpolate({
+//     inputRange: [0, 1],
+//     outputRange: [-width * 0.75, 0], // 75% width for drawer
+//   });
+
+//   const toggleDrawer = () => {
+//     setDrawerOpen(!drawerOpen);
+//   };
+
+//   const onCloseDrawer = () => {
+//     setDrawerOpen(false);
+//   };
+
+//   const renderScreen = () => {
+//     switch (currentScreen) {
+//       case 'Home':
+//         return <Home />;
+//       case 'Profile':
+//         return <Profile />;
+//       case 'Settings':
+//         return <Settings />;
+//       default:
+//         return <Home />;
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       {/* Main Button to Toggle Drawer */}
+//       <TouchableOpacity onPress={toggleDrawer} style={styles.button}>
+//         <Text style={styles.buttonText}>Toggle Drawer</Text>
+//       </TouchableOpacity>
+
+//       {/* Drawer Overlay */}
+//       {drawerOpen && <TouchableOpacity style={styles.overlay} onPress={onCloseDrawer} />}
+
+//       {/* Drawer Animation */}
+//       <Animated.View style={[styles.drawerContainer, { transform: [{ translateX: drawerTranslateX }] }]}>
+//         <CustomDrawer onClose={onCloseDrawer} navigation={{ navigate: setCurrentScreen }} />
+//       </Animated.View>
+
+//       {/* Main Screen Content */}
+//       <View style={styles.mainContent}>
+//         {renderScreen()}
+//       </View>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//   },
+//   button: {
+//     padding: 10,
+//     backgroundColor: 'blue',
+//     borderRadius: 5,
+//     margin: 20,
+//   },
+//   buttonText: {
+//     color: 'white',
+//     fontSize: 16,
+//   },
+//   overlay: {
+//     position: 'absolute',
+//     top: 0,
+//     bottom: 0,
+//     left: 0,
+//     right: 0,
+//     backgroundColor: 'rgba(0, 0, 0, 0.7)', // Darkened background with 70% opacity
+//     zIndex: 1,
+//   },
+//   drawerContainer: {
+//     position: 'absolute',
+//     top: 0,
+//     bottom: 0,
+//     left: 0,
+//     width: width * 0.75, // Drawer width (75%)
+//     backgroundColor: '#fff',
+//     zIndex: 2, // Ensures drawer is above overlay
+//   },
+//   mainContent: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+// });
+
+// export default App;
+
+
+
+// App.js  import MainNavigator from './src/utils/navigation/MainNavigation';
+import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AppNavigator from './src/utils/navigation/AppNavigator';
+import MainNavigator from './src/utils/navigation/MainNavigation';
 
 const App = () => {
-  return <AppNavigator />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AppNavigator />
+    </GestureHandlerRootView>
+  );
 };
 
 export default App;
 
 
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  *
-//  * @format
-//  */
-
 // import React from 'react';
-// import type {PropsWithChildren} from 'react';
-// import {
-//   SafeAreaView,
-//   ScrollView,
-//   StatusBar,
-//   StyleSheet,
-//   Text,
-//   useColorScheme,
-//   View,
-// } from 'react-native';
 
-// import {
-//   Colors,
-//   DebugInstructions,
-//   Header,
-//   LearnMoreLinks,
-//   ReloadInstructions,
-// } from 'react-native/Libraries/NewAppScreen';
+// import AppNavigator from './src/utils/navigation/AppNavigator';
 
-// type SectionProps = PropsWithChildren<{
-//   title: string;
-// }>;
-
-// function Section({children, title}: SectionProps): React.JSX.Element {
-//   const isDarkMode = useColorScheme() === 'dark';
-//   return (
-//     <View style={styles.sectionContainer}>
-//       <Text
-//         style={[
-//           styles.sectionTitle,
-//           {
-//             color: isDarkMode ? Colors.white : Colors.black,
-//           },
-//         ]}>
-//         {title}
-//       </Text>
-//       <Text
-//         style={[
-//           styles.sectionDescription,
-//           {
-//             color: isDarkMode ? Colors.light : Colors.dark,
-//           },
-//         ]}>
-//         {children}
-//       </Text>
-//     </View>
-//   );
-// }
-
-// function App(): React.JSX.Element {
-//   const isDarkMode = useColorScheme() === 'dark';
-
-//   const backgroundStyle = {
-//     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-//   };
-
-//   return (
-//     <SafeAreaView style={backgroundStyle}>
-//       <StatusBar
-//         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-//         backgroundColor={backgroundStyle.backgroundColor}
-//       />
-//       <ScrollView
-//         contentInsetAdjustmentBehavior="automatic"
-//         style={backgroundStyle}>
-//         <Header />
-//         <View
-//           style={{
-//             backgroundColor: isDarkMode ? Colors.black : Colors.white,
-//           }}>
-//           <Section title="Step One">
-//             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-//             screen and then come back to see your edits.
-//           </Section>
-//           <Section title="See Your Changes">
-//             <ReloadInstructions />
-//           </Section>
-//           <Section title="Debug">
-//             <DebugInstructions />
-//           </Section>
-//           <Section title="Learn More">
-//             Read the docs to discover what to do next:
-//           </Section>
-//           <LearnMoreLinks />
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
+// const App = () => {
+//   return <AppNavigator />;
+// };
 
 // export default App;
+
+
+
+
+
+// // App.js
+// import React from 'react';
+// import AppNavigator from './src/utils/navigation/AppNavigator';
+
+
+
+// const App = () => {
+//   return <AppNavigator />;
+// };
+
+// export default App;
+

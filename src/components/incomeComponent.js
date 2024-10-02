@@ -7,6 +7,8 @@ import WalletIcon from '../assets/svg/money-send-circle.svg';
 import PiggyBankIcon from '../assets/svg/transaction.svg';
 import LeadingIcon from '../assets/svg/lead-icon.svg';
 
+import ArrowDown from '../assets/svg/arrow-down.svg';
+
 // Map for SVG icons
 const iconMap = {
   university: UniversityIcon,
@@ -30,6 +32,7 @@ const IncomeComponent = ({ title, percentage, amount, subAmount, iconName }) => 
 
       <View style={styles.amountAndIcon}>
         <Text style={styles.amountText}>${amount}</Text>
+        
         <LeadingIcon width={24} height={24} />
       </View>
 
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: 16,
-    color: colors.lightGrey,
+    color: '#ccc',
   },
 });
 

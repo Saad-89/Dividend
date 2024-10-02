@@ -14,7 +14,7 @@ const Dropdown = ({ label, selectedValue, onValueChange, items }) => {
         >
           {items.map((item, index) => (
             <Picker.Item key={index} label={item.label} value={item.value} />
-          ))}
+          ))} 
         </Picker>
       </View>
     </View>
@@ -23,12 +23,11 @@ const Dropdown = ({ label, selectedValue, onValueChange, items }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 20,
+ 
   },
   label: {
-    fontSize: 14,
     color: '#333',
-    marginBottom: 5,
+ 
   },
   pickerContainer: {
     height: 50,
@@ -36,11 +35,13 @@ const styles = StyleSheet.create({
     borderColor: '#E8E8E8',
     borderRadius: 8,
     justifyContent: 'center',
-    backgroundColor: '#F6F6F6',
+    backgroundColor: '#fff',
+    paddingTop: 0, // Remove any top padding
   },
   picker: {
     height: 50,
     width: '100%',
+    marginTop: -8, // Reduce top margin if needed
   },
 });
 
